@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Premium SEO Metadata -->
+    <title>AURANG — Bespoke Luxury Curation & Experiences</title>
+    <meta name="description" content="We don't host events. We create experiences. Enter the world of AURANG: cinematic luxury hospitality, custom atmospheres, and bespoke curations." />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23d4af37%22 font-family=%22serif%22>A</text></svg>" />
+
+    <!-- Google Fonts: Cormorant Garamond (Editorial Serif) & Outfit (Geometric Sans-Serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Outfit:wght@100;200;300;400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Film Grain Overlay (Analog Cinematic Texture) -->
+    <div class="cinematic-grain" aria-hidden="true"></div>
+
+    <!-- Vignette & Volumetric Lighting Shadow Mask -->
+    <div class="cinematic-vignette" aria-hidden="true"></div>
+
+    <!-- WebGL Three.js Canvas Container -->
+    <div class="webgl-container">
+      <canvas id="webgl-canvas"></canvas>
+    </div>
+
+    <!-- 2D Atmospheric Mist Canvas Overlay -->
+    <canvas id="mist-canvas" aria-hidden="true"></canvas>
+
+    <!-- Minimal Floating Navbar -->
+    <nav class="navbar" id="navbar">
+      <div class="navbar-container">
+        <a href="#" class="logo" id="logo-link">
+          <span class="logo-serif">A</span><span class="logo-sans">URANG</span>
+        </a>
+        <button class="menu-button" id="menu-btn" aria-label="Open Menu">
+          <span class="menu-text">MENU</span>
+          <span class="menu-lines">
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+          </span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main Cinematic Layout -->
+    <main class="hero-section" id="hero-main">
+      <div class="hero-center-container">
+        <!-- Center: Editorial Typography -->
+        <div class="hero-content">
+          <header class="hero-header">
+            <p class="tagline" id="tagline-text">BESPOKE HOSPITALITY SERVICES</p>
+            <h1 class="editorial-title" id="title-main">
+              <span class="title-row title-row-1">WE DON'T HOST</span>
+              <span class="title-row title-row-2">EVENTS</span>
+              <span class="title-row title-row-3">WE CREATE</span>
+              <span class="title-row title-row-4">EXPERIENCES</span>
+            </h1>
+          </header>
+          
+          <div class="description-block" id="desc-block">
+            <p class="luxury-description">
+              Elevating gatherers into visionaries. We craft immersive environments where physical design, high-sensory curation, and culinary artistry converge into unforgettable human milestones.
+            </p>
+          </div>
+
+          <div class="cta-container" id="cta-group">
+            <a href="#explore" class="btn btn-primary" id="btn-explore">
+              <span class="btn-text">EXPLORE</span>
+              <span class="btn-hover-fill"></span>
+            </a>
+            <a href="#book" class="btn btn-secondary" id="btn-book">
+              <span class="btn-text">BOOK NOW</span>
+              <span class="btn-hover-fill"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Seamless Cinematic About Section -->
+    <section class="about-section" id="about-section">
+      <div class="about-container">
+        <!-- Left Side: Editorial Typography -->
+        <div class="about-content" id="about-content">
+          <p class="about-tagline">DISCOVER AURANG</p>
+          <h2 class="about-title">ABOUT US</h2>
+          <div class="about-description">
+            <p>
+              We are architects of atmosphere and curators of experience. Our mission is to elevate the ordinary into the extraordinary, designing moments that linger in the memory.
+            </p>
+            <p>
+              With a meticulous attention to detail and a passion for bespoke luxury, we craft environments that are as unique as the individuals who inhabit them. Every element is intentionally designed to evoke emotion and inspire connection.
+            </p>
+          </div>
+        </div>
+        <!-- Right Side: Visual Target for WebGL Morphing Logo -->
+        <div class="about-visual" id="about-visual"></div>
+      </div>
+    </section>
+
+    <!-- Interactive Menu Overlay (Hidden initially, toggled via JS) -->
+    <div class="menu-overlay" id="menu-overlay" aria-hidden="true">
+      <div class="menu-overlay-bg"></div>
+      <div class="menu-overlay-content">
+        <ul class="menu-links">
+          <li><a href="#about" class="menu-link"><span class="menu-link-num">01</span> About Aurang</a></li>
+          <li><a href="#services" class="menu-link"><span class="menu-link-num">02</span> Bespoke Services</a></li>
+          <li><a href="#gallery" class="menu-link"><span class="menu-link-num">03</span> Immersive Portfolios</a></li>
+          <li><a href="#contact" class="menu-link"><span class="menu-link-num">04</span> Private Booking</a></li>
+        </ul>
+        <div class="menu-footer">
+          <p>© 2026 AURANG HOSPITALITY. ALL RIGHTS RESERVED.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Application Script Entrypoint -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
