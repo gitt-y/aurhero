@@ -92,8 +92,8 @@ function initThree() {
 async function loadLogoPoints() {
   try {
     const [pointsA, pointsB] = await Promise.all([
-      extractPointsFromImage('/download.png',     5.5, 12000), // Hero: centred hero logo
-      extractPointsFromImage('/download (1).png', 9.0, 12000, 0.52)  // About: Crop top 52% to ignore the logo graphic, just keep text. Scaled up slightly for readability.
+      extractPointsFromImage('./download.png',     5.5, 12000), // Hero: centred hero logo
+      extractPointsFromImage('./download (1).png', 9.0, 12000, 0.52)  // About: Crop top 52% to ignore the logo graphic, just keep text. Scaled up slightly for readability.
     ]);
 
     const count = Math.min(Math.max(pointsA.length, pointsB.length), 12000);
