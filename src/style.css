@@ -3,11 +3,13 @@
    Luxury Editorial / Cinematic Web Style
    ========================================================================== */
 
+@import './about.css';
+
 /* --- Modern Custom Variables & Luxury Tokens --- */
 :root {
   /* Color Palette */
-  --color-bg-base: #070708;
-  --color-bg-dark: #000000;
+  --color-bg-base: #08080a; /* Deep Matte Black */
+  --color-bg-dark: #040405; /* Pitch Black with Warm Undertone */
   --color-text-primary: #f5f5f7;
   --color-text-muted: #8e8e93;
   --color-text-dark: #1c1c1e;
@@ -45,18 +47,15 @@ html {
   color: var(--color-text-primary);
   font-family: var(--font-sans);
   font-size: 16px;
-  overflow-x: hidden;
-  height: 100%;
 }
 
 body {
-  background: #000000;
+  background: radial-gradient(120% 120% at 30% 40%, rgba(220, 180, 100, 0.035) 0%, rgba(220, 180, 100, 0.01) 35%, var(--color-bg-base) 70%), var(--color-bg-base);
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow-x: hidden; /* Allow vertical scroll for cinematic transitions */
 }
 
 ::-webkit-scrollbar {
@@ -80,14 +79,14 @@ body {
 
 /* --- Subtle Film Grain Noise --- */
 .cinematic-grain {
-  display: none; /* Removed as requested */
+  display: block; /* Restored for premium texture */
   position: fixed;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
   background: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
-  opacity: 0.02;
+  opacity: 0.025;
   pointer-events: none;
   z-index: 100;
   animation: grain-vibration 8s steps(10) infinite;
@@ -114,11 +113,11 @@ body {
   width: 100%;
   height: 100%;
   background: radial-gradient(
-    circle at 75% 45%,
-    rgba(25, 20, 10, 0.18) 0%,
-    rgba(7, 7, 8, 0.5) 45%,
-    rgba(0, 0, 0, 0.92) 80%,
-    rgba(0, 0, 0, 0.98) 100%
+    circle at 50% 50%,
+    rgba(4, 4, 5, 0) 0%,
+    rgba(4, 4, 5, 0.5) 45%,
+    rgba(4, 4, 5, 0.92) 80%,
+    var(--color-bg-dark) 100%
   );
   z-index: 2;
   pointer-events: none;
@@ -287,28 +286,29 @@ body {
   z-index: 10;
   display: flex;
   align-items: center;
-  padding: 8rem 3.5rem 4rem;
+  padding: 6rem 3.5rem 2rem;
   overflow: hidden;
 }
 
 .hero-center-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 55% 45%;
   align-items: center;
-  text-align: center;
   position: relative;
   z-index: 15;
 }
 
-/* Center Content Panel */
+/* Left Content Panel */
 .hero-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  text-align: left;
   z-index: 15;
+  padding-right: 2.5rem;
 }
 
 .tagline {
@@ -623,120 +623,14 @@ html.lenis, html.lenis body {
    Left: About editorial text (40–42%)
    Right: WebGL particle logo target (58–60%)
    ========================================================================== */
-.about-section {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  min-height: 100svh;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  padding: 0 0 0 3.5rem;   /* No top/bottom pad — vertically centred by flex */
-  background: transparent;
-}
-
-.about-container {
-  width: 100%;
-  max-width: 1500px;
-  margin: 0 auto;
-  display: grid;
-  /* Left column: 42% for text, Right column: 58% reserved for WebGL */
-  grid-template-columns: 42% 58%;
-  gap: 0;
-  align-items: center;
-  min-height: 100vh;
-  position: relative;
-  z-index: 15;
-}
-
-/* ── LEFT SIDE: Editorial Typography ── */
-.about-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0 4rem 0 0;
-  position: relative;
-
-  /* GSAP initial state — will be animated in */
-  opacity: 0;
-  transform: translateY(70px);
-  will-change: transform, opacity;
-}
-
-/* Decorative vertical gold rule on the right edge of content block */
-.about-content::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1px;
-  height: 35%;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    var(--color-gold) 30%,
-    var(--color-gold) 70%,
-    transparent 100%
-  );
-  opacity: 0.3;
-}
-
-.about-tagline {
-  font-family: var(--font-sans);
-  color: var(--color-gold);
-  font-size: 0.78rem;
-  font-weight: 400;
-  letter-spacing: 0.55em;
-  margin-bottom: 2.2rem;
-  text-transform: uppercase;
-}
-
-.about-title {
-  font-family: var(--font-serif);
-  font-size: clamp(3.2rem, 5.5vw, 6rem);
-  font-weight: 300;
-  line-height: 1.02;
-  color: var(--color-text-primary);
-  text-transform: uppercase;
-  margin-bottom: 2.5rem;
-  letter-spacing: -0.01em;
-}
-
-.about-title .italic-gold {
-  font-weight: 400;
-  font-style: italic;
-  color: var(--color-gold);
-  text-shadow: 0 0 30px var(--color-gold-glow);
-  letter-spacing: 0.05em;
-  display: block;
-}
-
-.about-description {
-  max-width: 420px;
-  font-family: var(--font-sans);
-  font-size: 0.98rem;
-  font-weight: 200;
-  line-height: 1.85;
-  color: var(--color-text-muted);
-  letter-spacing: 0.05em;
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-}
-
-/* ── RIGHT SIDE: WebGL particle target (empty — WebGL paints here) ── */
-.about-visual {
-  width: 100%;
-  height: 100vh;
-  /* Transparent placeholder — WebGL mascotGroup is positioned by GSAP/ThreeJS */
-}
+/* Removed About section styles */
 
 
 /* ==========================================================================
    RESPONSIVE STYLING (COLLAPSE & ADAPT)
    ========================================================================== */
 
+/* Medium Desktop Adjustment */
 /* Medium Desktop Adjustment */
 @media (max-width: 1400px) {
   .navbar {
@@ -745,17 +639,8 @@ html.lenis, html.lenis body {
   .hero-section {
     padding: 7rem 2.5rem 3rem;
   }
-  .hero-grid {
-    grid-template-columns: 1.15fr 0.85fr;
-  }
-  .about-section {
-    padding: 0 0 0 2.5rem;
-  }
-  .about-container {
-    grid-template-columns: 45% 55%;
-  }
-  .about-content {
-    padding: 0 3rem 0 0;
+  .hero-center-container {
+    grid-template-columns: 50% 50%;
   }
 }
 
@@ -767,13 +652,15 @@ html.lenis, html.lenis body {
   .hero-section {
     padding: 6rem 2rem 3rem;
   }
-  .hero-grid {
+  .hero-center-container {
     grid-template-columns: 1fr;
-    gap: 3.5rem;
     text-align: center;
   }
   .hero-content {
     align-items: center;
+    text-align: center;
+    padding-right: 0;
+    margin-top: 22vh; /* Push down to clear space for the centered model */
   }
   .description-block {
     max-width: 550px;
@@ -782,43 +669,15 @@ html.lenis, html.lenis body {
     justify-content: center;
     width: 100%;
   }
-  .hero-visual-target {
-    height: 40vh;
-  }
   /* volumetric lighting centered on tablet */
   .cinematic-vignette {
     background: radial-gradient(
       circle at 50% 50%,
-      rgba(25, 20, 10, 0.18) 0%,
-      rgba(7, 7, 8, 0.5) 45%,
-      rgba(0, 0, 0, 0.92) 80%,
-      rgba(0, 0, 0, 0.98) 100%
+      rgba(220, 180, 100, 0.04) 0%,
+      rgba(4, 4, 5, 0.5) 45%,
+      rgba(4, 4, 5, 0.92) 80%,
+      var(--color-bg-dark) 100%
     );
-  }
-
-  /* About: single-column stacked, text on top, WebGL behind */
-  .about-section {
-    padding: 3rem 2rem 4rem;
-  }
-  .about-container {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-  .about-content {
-    padding: 22vh 0 0 0;
-    text-align: center;
-    align-items: center;
-  }
-  .about-content::after {
-    display: none; /* Hide the vertical rule on mobile */
-  }
-  .about-visual {
-    display: none; /* WebGL canvas already fills the screen on mobile */
-  }
-  .about-description {
-    max-width: 560px;
-    text-align: left;
-    align-items: flex-start;
   }
 }
 
@@ -843,13 +702,16 @@ html.lenis, html.lenis body {
   .hero-section {
     padding: 6.5rem 1.5rem 2rem;
   }
+  .hero-content {
+    margin-top: 18vh; /* Adjust for smaller mobile screens */
+  }
   .tagline {
     font-size: 0.75rem;
     letter-spacing: 0.3em;
     margin-bottom: 1.5rem;
   }
   .editorial-title {
-    font-size: clamp(2rem, 10vw, 3.2rem);
+    font-size: clamp(2.1rem, 10vw, 3.4rem);
     margin-bottom: 1.8rem;
   }
   .luxury-description {
@@ -865,8 +727,5 @@ html.lenis, html.lenis body {
   .btn {
     width: 100%;
     padding: 1.1rem 2rem;
-  }
-  .hero-visual-target {
-    height: 35vh;
   }
 }

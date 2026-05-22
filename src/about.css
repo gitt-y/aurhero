@@ -1,0 +1,209 @@
+/* ==========================================================================
+   ABOUT SECTION STYLES
+   Editorial, Clean, Minimalist Architectural Grid Layout
+   ========================================================================== */
+
+.about-section {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  padding: 8rem 0;
+}
+
+.about-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+/* --- Left Column: Editorial Content --- */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  /* Start hidden for GSAP reveal */
+  opacity: 0;
+  filter: blur(15px);
+  will-change: opacity, transform, filter;
+}
+
+.about-label {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  font-weight: 500;
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+.about-label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1px;
+  background-color: var(--color-gold);
+}
+
+.about-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  font-weight: 300;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-row {
+  display: block;
+}
+
+.about-description {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  max-width: 480px;
+  font-weight: 300;
+}
+
+/* Luxury Outline Button */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 2.5rem;
+  border: 1px solid rgba(220, 180, 100, 0.4);
+  background-color: transparent;
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  width: max-content;
+  margin-top: 1rem;
+}
+
+.btn-outline .btn-text {
+  position: relative;
+  z-index: 2;
+  transition: color 0.4s ease;
+}
+
+.btn-outline .btn-hover-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-gold-glow);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.btn-outline:hover {
+  border-color: var(--color-gold);
+}
+
+.btn-outline:hover .btn-hover-fill {
+  transform: scaleY(1);
+}
+
+.btn-outline:hover .btn-text {
+  color: #fff;
+}
+
+/* --- Right Column: Architectural Visual --- */
+.about-visual {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-visual-frame {
+  width: 100%;
+  height: 100%;
+  max-width: 450px;
+  max-height: 550px;
+  position: relative;
+  /* Optional: a very subtle backdrop blur to contrast against the grid */
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  background: rgba(8, 8, 10, 0.2);
+}
+
+/* Frame Lines (Animated by GSAP later) */
+.frame-line {
+  position: absolute;
+  background-color: rgba(220, 180, 100, 0.2);
+}
+
+.line-top { top: 0; left: 0; width: 0%; height: 1px; }
+.line-right { top: 0; right: 0; width: 1px; height: 0%; }
+.line-bottom { bottom: 0; right: 0; width: 0%; height: 1px; }
+.line-left { bottom: 0; left: 0; width: 1px; height: 0%; }
+
+/* Targeting Corners */
+.frame-corner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--color-gold);
+  opacity: 0; /* Revealed by GSAP */
+}
+
+.corner-tl { top: -4px; left: -4px; border-right: none; border-bottom: none; }
+.corner-tr { top: -4px; right: -4px; border-left: none; border-bottom: none; }
+.corner-bl { bottom: -4px; left: -4px; border-right: none; border-top: none; }
+.corner-br { bottom: -4px; right: -4px; border-left: none; border-top: none; }
+
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 1024px) {
+  .about-container {
+    padding: 0 2rem;
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 6rem 0;
+  }
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .about-visual {
+    height: 400px;
+  }
+  
+  .about-visual-frame {
+    max-width: 320px;
+  }
+}
