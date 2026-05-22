@@ -654,19 +654,18 @@ html.lenis, html.lenis body {
   }
   .hero-center-container {
     grid-template-columns: 1fr;
-    text-align: center;
+    text-align: left;
   }
   .hero-content {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
     padding-right: 0;
-    margin-top: 22vh; /* Push down to clear space for the centered model */
   }
   .description-block {
     max-width: 550px;
   }
   .cta-container {
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
   }
   /* volumetric lighting centered on tablet */
@@ -684,7 +683,7 @@ html.lenis, html.lenis body {
 /* Mobile Screen Layout */
 @media (max-width: 580px) {
   .navbar {
-    padding: 1.2rem 1.5rem;
+    padding: 1.2rem 2rem;
   }
   .logo-serif {
     font-size: 1.3rem;
@@ -700,10 +699,10 @@ html.lenis, html.lenis body {
     width: 18px;
   }
   .hero-section {
-    padding: 6.5rem 1.5rem 2rem;
+    padding: 6.5rem 2rem 2rem;
   }
   .hero-content {
-    margin-top: 18vh; /* Adjust for smaller mobile screens */
+    /* Centered vertically via flexbox, no margin-top needed */
   }
   .tagline {
     font-size: 0.75rem;

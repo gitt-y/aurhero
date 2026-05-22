@@ -206,4 +206,8 @@
   .about-visual-frame {
     max-width: 320px;
   }
+  
+  .about-headline {
+    font-size: clamp(2.1rem, 10vw, 3.4rem);
+  }
 }

@@ -43,7 +43,7 @@ function updateResponsiveLayout() {
   if (isMobile) {
     baseScale = 0.65;
     baseX = 0.0;
-    baseY = 2.2;
+    baseY = 0.0;
     cameraZ = 20;
   } else if (isTablet) {
     baseScale = 0.75;
@@ -156,6 +156,9 @@ function loadEmblem() {
     
     // Apply layout positions
     updateResponsiveLayout();
+
+    // Trigger initial cinematic animations
+    triggerGSAPAnimations();
   });
 }
 
@@ -496,7 +499,5 @@ window.addEventListener('DOMContentLoaded', () => {
   gsap.ticker.add((time) => { lenis.raf(time * 1000) });
   gsap.ticker.lagSmoothing(0);
 
-  // Trigger animations
-  triggerGSAPAnimations();
   initScrollAnimations();
 });
